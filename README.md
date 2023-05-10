@@ -1,2 +1,2 @@
 # snake
-funny snake game in processing with a Backend in express
+funny snake in java ( because processing is bloated) with a Backend in spring
