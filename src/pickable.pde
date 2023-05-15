@@ -1,22 +1,20 @@
-class pickable {
+class PICKABLE {
   float x;
   float y;
   String type;
   float size = 20;
-  
-  
-  pickable(){
+
+
+  PICKABLE() {
     reposition();
   }
 
-  void update(){
-    ellipse(x,y,size,size);
+  void update() {
+    ellipse(x, y, size, size);
   }
-  
-  void reposition(){
-    x = random(width-size)+size/2;
-    y = random(height-size)+size/2;
-  }
-      
 
+  void reposition() {
+    x = random(400-size)+size/2;
+    y = random(400-size)+size/2;
+  }
 }
