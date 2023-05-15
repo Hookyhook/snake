@@ -3,18 +3,18 @@ class Player {
   float y = height/2;
   float vx;
   float vy;
-  float maxv = 3;
+  float maxv = 5;
+  float size = 30;
   
   void update(){
     checkforWall();
-    rectMode(CENTER);
     x += vx;
     y += vy;
-    rect(x,y,50,50);
+    ellipse(x,y,size,size);
   }
   
   void checkforWall(){
-    if(x-25 <= 0 || x+25 >= width || y-25 <= 0 || y+25 >= height){
+    if(x-size/2 <= 0 || x+size/2 >= width || y-size/2 <= 0 || y+size/2 >= height){
         vx = -vx; 
         vy = -vy;
     }
@@ -28,7 +28,7 @@ class Player {
       break;
     case "UP":
       vy = -maxv;
-      p1.vx = 0;    
+      vx = 0;    
       break;
     case "LEFT":
       vx = -maxv;
