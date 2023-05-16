@@ -1,35 +1,34 @@
 void setup() {
-  size(400, 400);
-  frameRate(60);
+  size(400, 400);       // Set the size of the game window
+  frameRate(60);        // Set the frame rate of the game
 }
-GAME g1 = new GAME();
+
+GAME g1 = new GAME();   // Create an instance of the GAME class
+
 void draw() {
-  background(255);
-  g1.update();
+  background(255);      // Set the background color to white
+  g1.update();          // Update the game state
 }
 
-
-
+// Handle key press events
 void keyPressed() {
 
   switch (keyCode) {
-  case 40:
-    g1.startgame();
-    g1.p1.move("DOWN");
-    break;
-  case 38:
-    g1.startgame();
-    g1.p1.move("UP");
-    break;
-  case 37:
-    g1.startgame();
-
-    g1.p1.move("LEFT");
-    break;
-  case 39:
-    g1.startgame();
-
-    g1.p1.move("RIGHT");
-    break;
+    case 40:
+      g1.startgame();     // Start the game if not already started
+      g1.p1.move("DOWN"); // Move the player down
+      break;
+    case 38:
+      g1.startgame();     // Start the game if not already started
+      g1.p1.move("UP");   // Move the player up
+      break;
+    case 37:
+      g1.startgame();     // Start the game if not already started
+      g1.p1.move("LEFT"); // Move the player left
+      break;
+    case 39:
+      g1.startgame();     // Start the game if not already started
+      g1.p1.move("RIGHT");// Move the player right
+      break;
   }
 }
