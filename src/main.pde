@@ -1,13 +1,24 @@
+
 void setup() {
   size(400, 400);       // Set the size of the game window
   frameRate(60);        // Set the frame rate of the game
 }
 
 GAME g1 = new GAME();   // Create an instance of the GAME class
+GAMEOVER go1 = new GAMEOVER();
+String status = "GAME";
 
 void draw() {
   background(255);      // Set the background color to white
-  g1.update();          // Update the game state
+  switch (status){
+  case "GAME":
+    g1.update();// Update the game state
+    break;
+  case "GAMEOVER":
+    go1.update();
+    break;
+  }
+            
 }
 
 // Handle key press events

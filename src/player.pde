@@ -37,10 +37,10 @@ class PLAYER {
 
   // Check if the player hits a wall and update the velocity accordingly
   void checkforWall() {
+    
     // If the player's position is at or outside the boundaries of the screen
     if (x - size / 2 <= 0 || x + size / 2 >= width || y - size / 2 <= 0 || y + size / 2 >= height) {
-      vx = -vx;         // Reverse the X-velocity to bounce off the wall
-      vy = -vy;         // Reverse the Y-velocity to bounce off the wall
+      status = "GAMEOVER";
     }
   }
 

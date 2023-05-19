@@ -23,12 +23,12 @@ class GAME {
     p1.update();          // Update the player's position
     for (int i = 0; i < numberofpickables; i++) {
       pickables.get(i).update();  // Update and draw each pickable item
+      }
       fill(0);
       textSize(14);
       textAlign(CENTER);
       text("Score: " + score, 30, 15);  // Display the current score
       fill(255);
-    }
   }
 
   // Check if the player picks up any pickable items
