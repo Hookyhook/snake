@@ -9,16 +9,22 @@ class PLAYER {
   float maxv = 1.5;     // Maximum velocity magnitude
   float size = 30;      // Size of the player (diameter of the ellipse)
   ArrayList<PVector> tail = new ArrayList<PVector>();  // List to store the tail segments
-  int tailLength = 0;                                 // Initial length of the tail
+  int tailLength = 1;                                 // Initial length of the tail
   int cooldown = 0;
-
+  PLAYER(){
+    tail.add(new PVector(x,y));
+  }
   // Update the player's position
   void update() {
+    print(tail.get(0));
     cooldown++;
     checkforWall();     // Check if the player hits a wall and update velocity if necessary
     x += vx;            // Update the X-coordinate based on the velocity
     y += vy;            // Update the Y-coordinate based on the velocity
-    ellipse(x, y, size, size);  // Draw the player as an ellipse
+    ellipse(x, y, size, size);  // Draw the player as anAC ellipse
+    if(dist(){
+      tail.set(0, new PVector(x,y));
+    }
     if(cooldown >= 10){
     tail.add(new PVector(x, y));
     cooldown = 0;
@@ -30,8 +36,10 @@ class PLAYER {
     }
 
     // Draw the tail
-    for (PVector segment : tail) {
-      ellipse(segment.x, segment.y, size, size);
+    if(tail.size()>1){
+    for(int i = 1; i < tail.size(); i++){
+      ellipse(tail.get(i).x,tail.get(i).y,size,size);
+    }
     }
   }
 
