@@ -17,17 +17,15 @@ class PLAYER {
   // Update the player's position
   void update() {
     print(tail.get(0));
-    cooldown++;
     checkforWall();     // Check if the player hits a wall and update velocity if necessary
     x += vx;            // Update the X-coordinate based on the velocity
     y += vy;            // Update the Y-coordinate based on the velocity
     ellipse(x, y, size, size);  // Draw the player as anAC ellipse
-    if(dist(){
+    if(tailLength == 1){
       tail.set(0, new PVector(x,y));
     }
-    if(cooldown >= 10){
+    if(dist(tail.get(tail.size()-1).x, tail.get(tail.size()-1).y, x, y)>= size){
     tail.add(new PVector(x, y));
-    cooldown = 0;
     }
 
     // Remove the oldest tail segment if the tail exceeds its length
