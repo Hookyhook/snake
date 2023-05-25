@@ -16,7 +16,7 @@ class PLAYER {
   }
   // Update the player's position
   void update() {
-    print(tail.get(0));
+    checkforTailCollision();
     checkforWall();     // Check if the player hits a wall and update velocity if necessary
     x += vx;            // Update the X-coordinate based on the velocity
     y += vy;            // Update the Y-coordinate based on the velocity
@@ -49,7 +49,13 @@ class PLAYER {
       status = "GAMEOVER";
     }
   }
-
+  void checkforTailCollision (){
+    for(int i = 0; i < tail.size()-1; i++){
+      if(dist(tail.get(i).x, tail.get(i).y, x, y)< size){
+        status = "GAMEOVER";
+      }
+    }
+  }
   // Move the player in a specified direction
   void move(String direction) {
     switch (direction) {
