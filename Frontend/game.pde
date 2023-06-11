@@ -2,8 +2,7 @@
 
 class GAME {
   PLAYER p1 = new PLAYER();  // Create an instance of the PLAYER class for the game
-  float numberofpickables = 5;  // Number of pickable items in the game
-  int score = 0;          // Current score of the game
+  float numberofpickables = 5;  // Number of pickable items in the game         // Current score of the game
   boolean gamestarted = false;  // Flag to track if the game has started
   ArrayList<PICKABLE> pickables = new ArrayList<PICKABLE>();  // List of pickable items
 

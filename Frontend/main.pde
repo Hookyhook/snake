@@ -7,6 +7,7 @@ void setup() {
 GAME g1 = new GAME();   // Create an instance of the GAME class
 GAMEOVER go1 = new GAMEOVER();
 String status = "GAME";
+int score = 0;
 
 void draw() {
   background(255);      // Set the background color to white
@@ -42,4 +43,9 @@ void keyPressed() {
       g1.p1.move("RIGHT");// Move the player right
       break;
   }
+}
+
+void restartGame (){
+  g1 = new GAME();
+  status = "GAME";
 }
