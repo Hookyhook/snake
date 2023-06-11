@@ -49,4 +49,29 @@ app.post('/submit', async (req, res) => {
     return res.status(200).json({place});
 });
 
+app.get('/leaderboard', async (req, res) => {
+    const leaderboard = query('SELECT User.username, Score.score FROM Score INNER JOIN User ON Score.userid = User.id ORDER BY Score.score DESC LIMIT 25');
+    if(leaderboard.err) {
+        return res.status(500);
+    }
+    return res.status(200).json(leaderboard.rows);
+});
+
+app.get('/user/:username', async (req, res) => {
+    const username = req.params.username;
+    const userlookup = await query('SELECT * FROM User WHERE username = ?', [username]);
+    if(userlookup.err) {
+        return res.status(500);
+    }
+    if(userlookup.rows.length === 0) {
+        return res.status(404);
+    }
+    const id = userlookup.rows[0].id;
+    const scorelookup = await query('SELECT score FROM Score WHERE userid = ? ORDER BY score DESC LIMIT 1', [id]);
+    if(scorelookup.err) {
+        return res.status(500);
+    }
+    const score = scorelookup.score;
+    return res.status(200).json({username, score});
+});
 
