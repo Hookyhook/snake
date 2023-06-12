@@ -74,4 +74,4 @@ app.get('/user/:username', async (req, res) => {
     const score = scorelookup.score;
     return res.status(200).json({username, score});
 });
-
+app.listen(2457)
