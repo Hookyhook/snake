@@ -4,6 +4,10 @@ const app = express();
 
 const {query, IdByToken} = require('./database.js');
 
+app.get("/", (req, res) => {
+    res.status(200).send("Snake API");
+});
+
 app.post('/submit', async (req, res) => {
     const DATA = req.body;
     const check = [
