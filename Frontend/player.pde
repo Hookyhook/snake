@@ -20,7 +20,7 @@ class PLAYER {
     checkforWall();     // Check if the player hits a wall and update velocity if necessary
     x += vx;            // Update the X-coordinate based on the velocity
     y += vy;            // Update the Y-coordinate based on the velocity
-    ellipse(x, y, size, size);  // Draw the player as anAC ellipse
+      // Draw the player as anAC ellipse
     if(tailLength == 1){
       tail.set(0, new PVector(x,y));
     }
@@ -39,6 +39,7 @@ class PLAYER {
       ellipse(tail.get(i).x,tail.get(i).y,size,size);
     }
     }
+    ellipse(x, y, size, size);
   }
 
   // Check if the player hits a wall and update the velocity accordingly
