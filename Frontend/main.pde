@@ -1,12 +1,13 @@
 
 void setup() {
   size(400, 400);       // Set the size of the game window
-  frameRate(60);        // Set the frame rate of the game
+  frameRate(45);        // Set the frame rate of the game
 }
 
 GAME g1 = new GAME();   // Create an instance of the GAME class
 GAMEOVER go1 = new GAMEOVER();
-String status = "GAME";
+MAINMENU m1 = new MAINMENU();
+String status = "MAINMENU";
 int score = 0;
 
 void draw() {
@@ -18,6 +19,8 @@ void draw() {
   case "GAMEOVER":
     go1.update();
     break;
+  case "MAINMENU":
+    m1.update();
   }
             
 }
