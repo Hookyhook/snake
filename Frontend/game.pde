@@ -35,9 +35,15 @@ class GAME {
     for (int i = 0; i < numberofpickables; i++) {
       // Calculate the distance between the player and the pickable item
       if (dist(pickables.get(i).x, pickables.get(i).y, p1.x, p1.y) < p1.size / 2 + pickables.get(i).size / 2 + 2 && gamestarted) {
+        if(pickables.get(i).type == "bomb"){
+          status = "GAMEOVER";
+          return;
+        }else{
         pickables.get(i).reposition();  // Reposition the picked-up item to a new random position
+        pickables.get(i).updatetype();
         score++;            // Increase the score
         p1.tailLength++;
+        }
       }
     }
   }
