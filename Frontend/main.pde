@@ -1,7 +1,13 @@
+PShape bomb;
+PShape grape;
+PShape watermelon;
 
 void setup() {
   size(400, 400);       // Set the size of the game window
   frameRate(45);        // Set the frame rate of the game
+  bomb = loadShape("./assets/pickable_bomb.svg");
+  grape = loadShape("./assets/pickable_grape.svg");
+  watermelon = loadShape("./assets/pickable_watermelon.svg");
 }
 
 GAME g1 = new GAME();   // Create an instance of the GAME class
@@ -9,6 +15,8 @@ GAMEOVER go1 = new GAMEOVER();
 MAINMENU m1 = new MAINMENU();
 String status = "MAINMENU";
 int score = 0;
+
+
 
 void draw() {
   background(255);      // Set the background color to white

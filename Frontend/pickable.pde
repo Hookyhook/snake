@@ -15,7 +15,7 @@ class PICKABLE {
   // Update the pickable item
   void update() {
     if(type == "bomb"){
-      fill(0);
+      shape(bomb, x, y, 50, 50);
       int randomNumber = (int) random(1, 400);
       if(randomNumber==20){
       reposition();
@@ -23,10 +23,10 @@ class PICKABLE {
       }
     }
     if(type == "grape"){
-      fill(125);
+      shape(grape, x, y, 50, 50);
     }
     ellipse(x, y, size, size);  // Draw the pickable item as an ellipse
-    fill(255);
+    shape(watermelon, x, y, 50, 50);
   }
 
   // Reposition the pickable item to a random position
