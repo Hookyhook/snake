@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
     res.status(200).send("Snake API");
 });
 
-app.post('/submit', async (req, res) => {
-    const DATA = req.body;
+app.get('/submit/:score/:username', async (req, res) => {
+    const DATA = req.params;
     const check = [
         DATA?.username,
         DATA?.score
