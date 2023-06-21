@@ -55,7 +55,7 @@ app.get('/submit/:score/:username', async (req, res) => {
 
     const place = placequery.rows[0]['COUNT(*)'] + 1;
 
-    return res.status(200).json({place});
+    return res.status(200).send({place});
 });
 
 app.get('/leaderboard', async (req, res) => {
@@ -63,7 +63,7 @@ app.get('/leaderboard', async (req, res) => {
     if(leaderboard.err) {
         return res.status(500);
     }
-    return res.status(200).json(leaderboard.rows);
+    return res.status(200).send(leaderboard.rows);
 });
 
 app.get('/user/:username', async (req, res) => {
@@ -81,6 +81,6 @@ app.get('/user/:username', async (req, res) => {
         return res.status(500);
     }
     const score = scorelookup.score;
-    return res.status(200).json({username, score});
+    return res.status(200).send({username, score});
 });
 app.listen(2457)
