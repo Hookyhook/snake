@@ -3,8 +3,8 @@
 class PICKABLE {
   float x;               // X-coordinate of the pickable item's position
   float y;               // Y-coordinate of the pickable item's position
-  String type;           // Type of the pickable item (not used in the current implementation)
-  float size = 20;       // Size of the pickable item (diameter of the ellipse
+  String type;           
+  float size = 20;       // Size of the pickable item (diameter of the ellipse)
 
   // Constructor: Initialize the pickable item with a random position
   PICKABLE() {
@@ -25,7 +25,6 @@ class PICKABLE {
     if(type == "grape"){
       shape(grape, x, y, 50, 50);
     }
-    ellipse(x, y, size, size);  // Draw the pickable item as an ellipse
     shape(watermelon, x, y, 50, 50);
   }
 

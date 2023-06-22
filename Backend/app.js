@@ -126,7 +126,7 @@ app.get("/user/:username", async (req, res) => {
 
   return res
     .status(200)
-    .send({ username: username, highscore: scorelookup.rows[0].score }); // Return a 200 OK status along with the user's information and highest score
+    .send({highscore: scorelookup.rows[0].score }); // Return a 200 OK status along with the user's information and highest score
 });
 
 app.listen(2457); // Start the server on port 2457

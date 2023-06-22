@@ -1,6 +1,14 @@
+import http.requests.*;
+
 PShape bomb;
 PShape grape;
 PShape watermelon;
+
+JSONArray scorelist = new JSONArray();
+JSONObject place = new JSONObject();
+JSONObject highscore = new JSONObject();
+
+String username = "testclient";
 
 void setup() {
   size(400, 400);       // Set the size of the game window
@@ -8,6 +16,7 @@ void setup() {
   bomb = loadShape("./assets/pickable_bomb.svg");
   grape = loadShape("./assets/pickable_grape.svg");
   watermelon = loadShape("./assets/pickable_watermelon.svg");
+  loadhighscore();
 }
 
 GAME g1 = new GAME();   // Create an instance of the GAME class
@@ -59,4 +68,25 @@ void keyPressed() {
 void restartGame (){
   g1 = new GAME();
   status = "GAME";
+}
+
+void loadScoreboard(){
+  GetRequest get = new GetRequest("http://snake.timkausemann.de/leaderboard");
+  get.send();
+  scorelist = parseJSONArray(get.getContent());
+}
+
+void submitscore(int score){
+  String url = "http://snake.timkausemann.de/submit/"+username+"/"+score;
+  GetRequest get = new GetRequest(url);
+  get.send();
+  place = parseJSONObject(get.getContent());
+}
+
+void loadhighscore(){
+  String url = "http://snake.timkausemann.de/user/"+username;
+  GetRequest get = new GetRequest(url);
+  get.send();
+  highscore = parseJSONObject(get.getContent());
+  print(highscore);
 }
