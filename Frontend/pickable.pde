@@ -4,7 +4,7 @@ class PICKABLE {
   float x;               // X-coordinate of the pickable item's position
   float y;               // Y-coordinate of the pickable item's position
   String type;           
-  float size = 20;       // Size of the pickable item (diameter of the ellipse)
+  float size = 28;       // Size of the pickable item (diameter of the ellipse)
 
   // Constructor: Initialize the pickable item with a random position
   PICKABLE() {
@@ -15,17 +15,19 @@ class PICKABLE {
   // Update the pickable item
   void update() {
     if(type == "bomb"){
-      shape(bomb, x, y, 50, 50);
+      shape(bomb, x-29, y-27, 70, 50);
       int randomNumber = (int) random(1, 400);
-      if(randomNumber==20){
-      reposition();
-      updatetype();
+      if (randomNumber == 1) {
+        reposition();
+        updatetype();
       }
     }
-    if(type == "grape"){
-      shape(grape, x, y, 50, 50);
+    else if(type == "grape"){
+      shape(grape, x-25, y-27, 50, 50);
     }
-    shape(watermelon, x, y, 50, 50);
+    else if(type == "melon"){
+      shape(watermelon, x-25, y-25, 50, 50);
+    }
   }
 
   // Reposition the pickable item to a random position

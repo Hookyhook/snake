@@ -3,6 +3,9 @@ import http.requests.*;
 PShape bomb;
 PShape grape;
 PShape watermelon;
+PShape snake_head;
+PShape snake_body;
+PShape snake_tail;
 
 JSONArray scorelist = new JSONArray();
 JSONObject place = new JSONObject();
@@ -16,13 +19,15 @@ void setup() {
   bomb = loadShape("./assets/pickable_bomb.svg");
   grape = loadShape("./assets/pickable_grape.svg");
   watermelon = loadShape("./assets/pickable_watermelon.svg");
-  loadhighscore();
+  snake_head = loadShape("./assets/snake_head.svg");
+  snake_body = loadShape("./assets/snake_body.svg");
+  snake_tail = loadShape("./assets/snake_tail.svg");
 }
 
 GAME g1 = new GAME();   // Create an instance of the GAME class
 GAMEOVER go1 = new GAMEOVER();
 MAINMENU m1 = new MAINMENU();
-String status = "MAINMENU";
+String status = "GAME";
 int score = 0;
 
 
