@@ -4,7 +4,7 @@ class PICKABLE {
   float x;               // X-coordinate of the pickable item's position
   float y;               // Y-coordinate of the pickable item's position
   String type;           
-  float size = 28;       // Size of the pickable item (diameter of the ellipse)
+  float size = 28*relativesize;       // Size of the pickable item (diameter of the ellipse)
 
   // Constructor: Initialize the pickable item with a random position
   PICKABLE() {
@@ -15,7 +15,7 @@ class PICKABLE {
   // Update the pickable item
   void update() {
     if(type == "bomb"){
-      shape(bomb, x-29, y-27, 70, 50);
+      shape(bomb, x-29*relativesize, y-27*relativesize, 70*relativesize, 50*relativesize);
       int randomNumber = (int) random(1, 400);
       if (randomNumber == 1) {
         reposition();
@@ -23,17 +23,17 @@ class PICKABLE {
       }
     }
     else if(type == "grape"){
-      shape(grape, x-25, y-27, 50, 50);
+      shape(grape, x-25*relativesize, y-27*relativesize, 50*relativesize, 50*relativesize);
     }
     else if(type == "melon"){
-      shape(watermelon, x-25, y-25, 50, 50);
+      shape(watermelon, x-25*relativesize, y-25*relativesize, 50*relativesize, 50*relativesize);
     }
   }
 
   // Reposition the pickable item to a random position
   void reposition() {
-    x = random(400 - size) + size / 2;  // Set a random X-coordinate within the screen boundaries
-    y = random(400 - size) + size / 2;  // Set a random Y-coordinate within the screen boundaries
+    x = random(width - size) + size / 2;  // Set a random X-coordinate within the screen boundaries
+    y = random(height - size) + size / 2;  // Set a random Y-coordinate within the screen boundaries
   }
   
   void updatetype(){

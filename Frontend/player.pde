@@ -7,7 +7,7 @@ class PLAYER {
   float vy;             // Velocity along the Y-axis
   float startv = 1.5;   // Initial velocity magnitude
   float maxv = 1.5;     // Maximum velocity magnitude
-  float size = 30;      // Size of the player (diameter of the ellipse)
+  float size = 15*relativesize;      // Size of the player (diameter of the ellipse)
   ArrayList<PVector> tail = new ArrayList<PVector>();  // List to store the tail segments
   int tailLength = 1;                                 // Initial length of the tail
   int cooldown = 0;
@@ -24,7 +24,7 @@ class PLAYER {
     if(tailLength == 1){
       tail.set(0, new PVector(x,y));
     }
-    if(dist(tail.get(tail.size()-1).x, tail.get(tail.size()-1).y, x, y)>= size){
+    if(dist(tail.get(tail.size()-1).x, tail.get(tail.size()-1).y, x, y)>= size*relativesize){
     tail.add(new PVector(x, y));
     }
 
@@ -36,10 +36,14 @@ class PLAYER {
     // Draw the tail
     if(tail.size()>1){
     for(int i = 1; i < tail.size(); i++){
-      ellipse(tail.get(i).x,tail.get(i).y,size,size);
+      if(i==1){
+      shape(snake_tail, tail.get(i).x-35*relativesize, tail.get(i).y-30*relativesize, size*2.7*relativesize, size*2*relativesize);
+      }else{
+      shape(snake_body, tail.get(i).x-35*relativesize, tail.get(i).y-30*relativesize, size*2.7*relativesize, size*2*relativesize);
+      }
     }
     }
-    ellipse(x, y, size, size);
+    ellipse(x, y, size*relativesize, size*relativesize);
   }
 
   // Check if the player hits a wall and update the velocity accordingly

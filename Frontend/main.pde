@@ -12,10 +12,21 @@ JSONObject place = new JSONObject();
 JSONObject highscore = new JSONObject();
 
 String username = "testclient";
+GAME g1;   // Create an instance of the GAME class
+GAMEOVER go1;
+MAINMENU m1;
+String status;
+int score;
+int relativesize = 2;
 
 void setup() {
-  size(400, 400);       // Set the size of the game window
-  frameRate(45);        // Set the frame rate of the game
+  fullScreen();      // Set the size of the game window
+  frameRate(60);        // Set the frame rate of the game
+  g1 = new GAME();   // Create an instance of the GAME class
+  go1 = new GAMEOVER();  // Create an instance of the GAMEOVER class
+  m1 = new MAINMENU(); // Create an instance of the MAINMENU class
+  status = "MAINMENU";
+  score = 0;
   bomb = loadShape("./assets/pickable_bomb.svg");
   grape = loadShape("./assets/pickable_grape.svg");
   watermelon = loadShape("./assets/pickable_watermelon.svg");
@@ -24,11 +35,7 @@ void setup() {
   snake_tail = loadShape("./assets/snake_tail.svg");
 }
 
-GAME g1 = new GAME();   // Create an instance of the GAME class
-GAMEOVER go1 = new GAMEOVER();
-MAINMENU m1 = new MAINMENU();
-String status = "GAME";
-int score = 0;
+
 
 
 

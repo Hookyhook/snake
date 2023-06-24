@@ -1,6 +1,10 @@
 class GAMEOVER {
-
-  BUTTON b1 = new BUTTON(200, 220, "Play Again");
+  GAMEOVER(){
+    print(width);
+  print(height);
+  }
+  
+  BUTTON b1 = new BUTTON(width/2, height/2+25, "Play Again");
   
   void update (){
      fill(0);

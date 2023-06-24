@@ -1,6 +1,6 @@
 class MAINMENU {
 
-  BUTTON b1 = new BUTTON(200, 220, "Play");
+  BUTTON b1 = new BUTTON(width/2, height/2+50, "Play");
   
   void update (){
      fill(0);
