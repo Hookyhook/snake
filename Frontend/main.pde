@@ -42,8 +42,8 @@ void setup() {
 
 
 void draw() {
-  shape(background,0,0,width*1.2,height*1.2); // Set the background color to white
-  switch (status){
+  shape(background, 0, 0, width*1.2, height*1.2); // Set the background color to white
+  switch (status) {
   case "GAME":
     g1.update();// Update the game state
     break;
@@ -53,56 +53,52 @@ void draw() {
   case "MAINMENU":
     m1.update();
   }
-            
 }
 
 // Handle key press events
 void keyPressed() {
 
   switch (keyCode) {
-    case 40:
-      g1.startgame();     // Start the game if not already started
-      g1.p1.move("DOWN"); // Move the player down
-      break;
-    case 38:
-      g1.startgame();     // Start the game if not already started
-      g1.p1.move("UP");   // Move the player up
-      break;
-    case 37:
-      g1.startgame();     // Start the game if not already started
-      g1.p1.move("LEFT"); // Move the player left
-      break;
-    case 39:
-      g1.startgame();     // Start the game if not already started
-      g1.p1.move("RIGHT");// Move the player right
-      break;
+  case 40:
+    g1.startgame();     // Start the game if not already started
+    g1.p1.move("DOWN"); // Move the player down
+    break;
+  case 38:
+    g1.startgame();     // Start the game if not already started
+    g1.p1.move("UP");   // Move the player up
+    break;
+  case 37:
+    g1.startgame();     // Start the game if not already started
+    g1.p1.move("LEFT"); // Move the player left
+    break;
+  case 39:
+    g1.startgame();     // Start the game if not already started
+    g1.p1.move("RIGHT");// Move the player right
+    break;
   }
 }
 
-void restartGame (){
+void restartGame () {
   g1 = new GAME();
   status = "GAME";
 }
 
-void loadScoreboard(){
-  print("loading scoreboard");
+void loadScoreboard() {
   GetRequest get = new GetRequest("http://snake.timkausemann.de/leaderboard");
   get.send();
   scorelist = parseJSONArray(get.getContent());
-  print(scorelist);
 }
 
-void submitscore(int score){
+void submitscore(int score) {
   String url = "http://snake.timkausemann.de/submit/"+username+"/"+score;
   GetRequest get = new GetRequest(url);
   get.send();
   place = parseJSONObject(get.getContent());
 }
 
-void loadhighscore(){
+void loadhighscore() {
   String url = "http://snake.timkausemann.de/user/"+username;
   GetRequest get = new GetRequest(url);
   get.send();
   highscore = parseJSONObject(get.getContent());
-  print(highscore);
 }
