@@ -3,9 +3,10 @@ import http.requests.*;
 PShape bomb;
 PShape grape;
 PShape watermelon;
-PShape snake_head;
+PImage snake_head;
 PShape snake_body;
 PShape snake_tail;
+PShape background;
 
 JSONArray scorelist = new JSONArray();
 JSONObject place = new JSONObject();
@@ -25,14 +26,15 @@ void setup() {
   g1 = new GAME();   // Create an instance of the GAME class
   go1 = new GAMEOVER();  // Create an instance of the GAMEOVER class
   m1 = new MAINMENU(); // Create an instance of the MAINMENU class
-  status = "MAINMENU";
+  status = "GAME";
   score = 0;
   bomb = loadShape("./assets/pickable_bomb.svg");
   grape = loadShape("./assets/pickable_grape.svg");
   watermelon = loadShape("./assets/pickable_watermelon.svg");
-  snake_head = loadShape("./assets/snake_head.svg");
   snake_body = loadShape("./assets/snake_body.svg");
   snake_tail = loadShape("./assets/snake_tail.svg");
+  snake_head = loadImage("./assets/snake_head.png");
+  background = loadShape("./assets/background_new.svg");
 }
 
 
@@ -40,7 +42,7 @@ void setup() {
 
 
 void draw() {
-  background(255);      // Set the background color to white
+  shape(background,0,0,width*1.2,height*1.2); // Set the background color to white
   switch (status){
   case "GAME":
     g1.update();// Update the game state

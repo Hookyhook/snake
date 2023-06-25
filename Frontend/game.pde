@@ -23,10 +23,10 @@ class GAME {
     for (int i = 0; i < numberofpickables; i++) {
       pickables.get(i).update();  // Update and draw each pickable item
       }
-      fill(0);
-      textSize(14);
+      fill(255);
+      textSize(20);
       textAlign(CENTER);
-      text("Score: " + score, 30, 15);  // Display the current score
+      text("Score: " + Math.round(frameRate), 30, 15);  // Display the current score
       fill(255);
   }
 
@@ -57,6 +57,6 @@ class GAME {
 
   // Update the player's speed based on the score
   void UpdatePlayerSpeed() {
-    p1.maxv = 1.5 + floor(score / 5) * 0.3;  // Increase the player's maximum velocity based on the score
+    p1.maxv = p1.startv + floor(score / 5) * 0.3;  // Increase the player's maximum velocity based on the score
   }
 }
