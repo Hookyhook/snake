@@ -26,7 +26,7 @@ void setup() {
   g1 = new GAME();   // Create an instance of the GAME class
   go1 = new GAMEOVER();  // Create an instance of the GAMEOVER class
   m1 = new MAINMENU(); // Create an instance of the MAINMENU class
-  status = "MAINMENU";
+  status = "GAMEOVER";
   score = 0;
   bomb = loadShape("./assets/pickable_bomb.svg");
   grape = loadShape("./assets/pickable_grape.svg");
@@ -57,7 +57,7 @@ void draw() {
 
 // Handle key press events
 void keyPressed() {
-
+  go1.i1.type(key);
   switch (keyCode) {
   case 40:
     g1.startgame();     // Start the game if not already started
