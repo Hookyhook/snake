@@ -26,7 +26,7 @@ void setup() {
   g1 = new GAME();   // Create an instance of the GAME class
   go1 = new GAMEOVER();  // Create an instance of the GAMEOVER class
   m1 = new MAINMENU(); // Create an instance of the MAINMENU class
-  status = "GAME";
+  status = "MAINMENU";
   score = 0;
   bomb = loadShape("./assets/pickable_bomb.svg");
   grape = loadShape("./assets/pickable_grape.svg");
@@ -85,9 +85,11 @@ void restartGame (){
 }
 
 void loadScoreboard(){
+  print("loading scoreboard");
   GetRequest get = new GetRequest("http://snake.timkausemann.de/leaderboard");
   get.send();
   scorelist = parseJSONArray(get.getContent());
+  print(scorelist);
 }
 
 void submitscore(int score){
