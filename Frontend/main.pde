@@ -1,14 +1,3 @@
-import http.requests.*;
-
-PShape bomb;
-PShape grape;
-PShape watermelon;
-PImage snake_head;
-PShape snake_body;
-PShape snake_tail;
-PShape background;
-
-JSONArray scorelist = new JSONArray();
 JSONObject place = new JSONObject();
 JSONObject highscore = new JSONObject();
 
@@ -26,7 +15,7 @@ void setup() {
   g1 = new GAME();   // Create an instance of the GAME class
   go1 = new GAMEOVER();  // Create an instance of the GAMEOVER class
   m1 = new MAINMENU(); // Create an instance of the MAINMENU class
-  status = "GAMEOVER";
+  status = "MAINMENU";
   score = 0;
   bomb = loadShape("./assets/pickable_bomb.svg");
   grape = loadShape("./assets/pickable_grape.svg");
@@ -81,7 +70,9 @@ void keyPressed() {
 void restartGame () {
   g1 = new GAME();
   status = "GAME";
+  go1 = new GAMEOVER();
 }
+
 
 void loadScoreboard() {
   GetRequest get = new GetRequest("http://snake.timkausemann.de/leaderboard");
