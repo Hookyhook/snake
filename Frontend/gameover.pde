@@ -1,7 +1,8 @@
 class GAMEOVER {
 
-  BUTTON b1 = new BUTTON(width/2, height/2+125, "Play Again");
-  INPUTFIELD i1 = new INPUTFIELD(width/2, height/2-50, 300, 100, "Enter Name");
+  BUTTON b1 = new BUTTON(width/2, height/2+25, "Play Again", 250*relativesize, 55*relativesize);
+  BUTTON b3 = new BUTTON(width/2, height/2+175, "MAINMENU", 250*relativesize, 55*relativesize);
+  INPUTFIELD i1 = new INPUTFIELD(50+150, height/2-180, 300, 100, "Enter Name");
   SCOREBOARD sb = new SCOREBOARD(50, 125);
   boolean submitted = false;
 
@@ -12,11 +13,22 @@ class GAMEOVER {
     text("GAMEOVER", width/2, height/2-200);
     textSize(45);
     text("Score: " + score, width/2, height/2-150);
+    textSize(30);
+    textAlign(LEFT);
+    fill(255, 125);
+    if(!submitted){
+        text("Submit you score with Enter", 50, height/2-90);
+    }else{
+        text("Submitted!", 50, height/2-90);
+    }
+    textAlign(CENTER);
     fill(255);
     b1.display();
+    b3.display();
     i1.display();
     sb.display();
     if(i1.submit && !submitted){
+      submitted = true;
       submitscore(score);
       loadScoreboard();
     }
@@ -25,6 +37,10 @@ class GAMEOVER {
     if (b1.clicked) {
       restartGame();
       b1.clicked = false;
+    }else if(b3.clicked){
+      restartGame();
+      b3.clicked = false;
+      status = "MAINMENU";
     }
   }
 }
