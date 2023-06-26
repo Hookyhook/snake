@@ -1,10 +1,14 @@
 class MAINMENU {
 
-  BUTTON b1 = new BUTTON(width/2, height/2, "Play");
-  BUTTON b2 = new BUTTON(width/2, height/2+150, "Quit");
+  BUTTON b1 = new BUTTON(width/2, height/2, "Play", 175*relativesize, 55*relativesize);
+  BUTTON b2 = new BUTTON(width/2, height/2+150, "Quit", 175*relativesize, 55*relativesize);
   SCOREBOARD sb = new SCOREBOARD(50, 125);
+  int clickcooldown = int(frameRate)*2;
 
   void update () {
+    if(clickcooldown > 0){
+    clickcooldown--;
+    }
     fill(0);
     textSize(100);
     textAlign(CENTER);
@@ -19,7 +23,7 @@ class MAINMENU {
       restartGame();
       b1.clicked = false;
     }
-    if (b2.clicked) {
+    if (b2.clicked && clickcooldown == 0) {
       exit();
     }
   }
