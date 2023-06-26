@@ -24,9 +24,9 @@ class GAME {
       pickables.get(i).update();  // Update and draw each pickable item
     }
     fill(255);
-    textSize(20);
+    textSize(40);
     textAlign(CENTER);
-    text("Score: " + score, 50,50);  // Display the current score
+    text("Score: " + score, 50*relativesize,50);  // Display the current score
     fill(255);
   }
 
