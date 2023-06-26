@@ -28,6 +28,7 @@ class GAMEOVER {
     i1.display();
     sb.display();
     if(i1.submit && !submitted){
+      username = i1.text;
       submitted = true;
       submitscore(score);
       loadScoreboard();

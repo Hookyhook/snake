@@ -1,3 +1,15 @@
+import http.requests.*;
+
+PShape bomb;
+PShape grape;
+PShape watermelon;
+PImage snake_head;
+PShape snake_body;
+PShape snake_tail;
+PShape background;
+
+JSONArray scorelist = new JSONArray();
+
 JSONObject place = new JSONObject();
 JSONObject highscore = new JSONObject();
 
