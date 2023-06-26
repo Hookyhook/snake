@@ -37,14 +37,23 @@ class PLAYER {
     if (tail.size()>1) {
       for (int i = 1; i < tail.size(); i++) {
         if (i==1) {
-          shape(snake_tail, tail.get(i).x-35*relativesize, tail.get(i).y-30*relativesize, size*2.7*relativesize, size*2*relativesize);
+          pushMatrix();
+          translate(tail.get(i).x, tail.get(i).y);
+          rotate(atan2(tail.get(i).y-tail.get(i-1).y, tail.get(i).x-tail.get(i-1).x)-PI/1.7);
+          shape(snake_tail, -35*relativesize, -30*relativesize, size*2.7*relativesize, size*2*relativesize);
+          popMatrix();
+          
         } else {
           shape(snake_body, tail.get(i).x-35*relativesize, tail.get(i).y-30*relativesize, size*2.7*relativesize, size*2*relativesize);
         }
       }
     }
-
-    image(snake_head, x-40*relativesize, y-24*relativesize, size*2.7*relativesize, size*2*relativesize);
+    pushMatrix();
+    translate(x, y);
+    rotate(atan2(vy, vx)-PI/2);
+    image(snake_head, -40*relativesize, -24*relativesize, size*2.7*relativesize, size*2*relativesize);
+    popMatrix();
+    
   }
 
   // Check if the player hits a wall and update the velocity accordingly
