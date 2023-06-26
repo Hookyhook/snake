@@ -13,14 +13,22 @@ class SCOREBOARD {
   void display() {
     pushMatrix();
     translate(x, y);
-
     textAlign(LEFT);
-    fill(0);
+    fill(255, 125);
     textSize(60);
     text("SCOREBOARD", 0, -40);
     textSize(40);
     int currentpage = 0;
-    for (int i=0+currentpage*5; i <= 5-1; i++) {
+    int limit;
+    if(scorelist.size()-(currentpage)*5 < 5 && scorelist.size()-(currentpage)*5 != 0){
+      limit = scorelist.size()-(currentpage)*5;
+    }else{
+      limit = (currentpage)*5;
+      if(limit == 0){
+        limit = 5;
+      }
+    }
+    for (int i=0+currentpage*5; i < limit; i++) {
       JSONObject scoreentry = scorelist.getJSONObject(i);
       String name = scoreentry.getString("username");
       int userscore = scoreentry.getInt("score");
