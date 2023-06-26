@@ -6,10 +6,12 @@ class BUTTON {
   String buttontext;
   boolean clicked = false;
 
-  BUTTON(int z1, int z2, String z3) {
+  BUTTON(int z1, int z2, String z3, int l, int h) {
     x = z1;
     y = z2;
     buttontext = z3;
+    this.l = l;
+    this.h = h;
   }
   void display() {
     fill(200, 200, 200, 100);
