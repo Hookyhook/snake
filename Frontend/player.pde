@@ -5,7 +5,7 @@ class PLAYER {
   float y = 200;        // Y-coordinate of the player's position
   float vx;             // Velocity along the X-axis
   float vy;             // Velocity along the Y-axis
-  float startv = 3*relativesize;   // Initial velocity magnitude
+  float startv = 5*relativesize;   // Initial velocity magnitude
   float maxv = 1.5;     // Maximum velocity magnitude
   float size = 15*relativesize;      // Size of the player (diameter of the ellipse)
   ArrayList<PVector> tail = new ArrayList<PVector>();  // List to store the tail segments
