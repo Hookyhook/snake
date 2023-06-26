@@ -27,7 +27,7 @@ class INPUTFIELD {
     textMode(CENTER);
     textAlign(LEFT, CENTER);
     textSize(height * 0.6);
-    fill(0);
+    fill(255, 125);
     if(text.length() == 0&& !active) {
       textSize(height * 0.4);
       text(placeholder, x-width/2+10, y-10);
@@ -45,12 +45,12 @@ class INPUTFIELD {
   }
 
   void type(char key) {
-    if (active && text.length() < 10 && key != CODED) {
-      if (key == BACKSPACE && text.length() > 0) {
+    if (active && key == BACKSPACE && text.length() > 0 && !submit) {
         text = text.substring(0, text.length() - 1);
-      } else if (key != BACKSPACE) {
-        text += key;
       }
+    if (active && text.length() < 10 &&key != BACKSPACE && key != CODED && !submit && keyCode != ENTER) {
+        text += key;
+      
     }
   }
   void checkstatus() { 
