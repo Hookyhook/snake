@@ -13,6 +13,8 @@ class PLAYER {
   int cooldown = 0;
   PLAYER() {
     tail.add(new PVector(x, y));
+    x = random(100, width-100);
+    y = random(100, height-100);
   }
   // Update the player's position
   void update() {

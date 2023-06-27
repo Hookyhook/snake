@@ -16,7 +16,11 @@ class GAMEOVER {
     textSize(30);
     textAlign(LEFT);
     fill(255, 125);
-    if(!submitted){
+    if(i1.textlimit){
+        text("You have reached the character limit!", 50, height/2-90);
+
+    }
+    else if(!submitted){
         text("Submit you score with Enter", 50, height/2-90);
     }else{
         text("Submitted!", 50, height/2-90);

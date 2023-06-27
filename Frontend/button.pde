@@ -5,6 +5,7 @@ class BUTTON {
   int h = 55*relativesize;
   String buttontext;
   boolean clicked = false;
+  int cooldown = 15;
 
   BUTTON(int z1, int z2, String z3, int l, int h) {
     x = z1;
@@ -14,6 +15,9 @@ class BUTTON {
     this.h = h;
   }
   void display() {
+    if(cooldown > 0) {
+      cooldown--;
+    }
     fill(200, 200, 200, 100);
     onClick();
     noStroke();
@@ -30,9 +34,10 @@ class BUTTON {
     if (mouseX > x - l/2 && mouseX < x + l/2) {
       if (mouseY > y - h/2 && mouseY < y + h/2) {
 
-        if (mousePressed && mouseButton==37) {
+        if (mousePressed && mouseButton==37 && cooldown == 0) {
           clicked = true;
           fill(200, 200, 200, 200);
+          cooldown = 45;
         } else {
           fill(200, 200, 200, 150);
         }

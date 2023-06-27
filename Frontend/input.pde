@@ -5,6 +5,7 @@ class INPUTFIELD {
   boolean active = false;  // Whether the field is currently active or not
   String placeholder = ""; // Placeholder text to display when the field is empty
   boolean submit = false; // Whether the field has been submitted or not
+  boolean textlimit = false; // Whether the field has reached the text limit or not
 
   INPUTFIELD(float x, float y, float width, float height, String placeholder) {
     this.x = x;
@@ -16,6 +17,11 @@ class INPUTFIELD {
 
   void display() {
     checkstatus();
+    if(text.length() == 9){
+        textlimit = true;
+      }else{
+        textlimit = false;
+        }
     if (active) {
       stroke(255);           // Active input field is white
     } else {
@@ -31,7 +37,11 @@ class INPUTFIELD {
     if(text.length() == 0&& !active) {
       textSize(height * 0.4);
       text(placeholder, x-width/2+10, y-10);
-    } else {
+    }
+    else {
+      if(textWidth(text)>width-20){
+        textSize(height * 0.37);
+      }
       text(text, x-width/2+10, y-height/6);
     }
   }
@@ -45,10 +55,11 @@ class INPUTFIELD {
   }
 
   void type(char key) {
+    
     if (active && key == BACKSPACE && text.length() > 0 && !submit) {
         text = text.substring(0, text.length() - 1);
       }
-    if (active && text.length() < 10 &&key != BACKSPACE && key != CODED && !submit && keyCode != ENTER) {
+    if (active && text.length() < 9 &&key != BACKSPACE && key != CODED && !submit && keyCode != ENTER) {
         text += key;
       
     }

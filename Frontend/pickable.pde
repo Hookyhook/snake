@@ -4,7 +4,7 @@ class PICKABLE {
   float x;               // X-coordinate of the pickable item's position
   float y;               // Y-coordinate of the pickable item's position
   String type;
-  float size = 28*relativesize;       // Size of the pickable item (diameter of the ellipse)
+  float size = 75*relativesize;       // Size of the pickable item (diameter of the ellipse)
 
   // Constructor: Initialize the pickable item with a random position
   PICKABLE() {
