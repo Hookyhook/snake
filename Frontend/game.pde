@@ -2,7 +2,9 @@
 
 class GAME {
   PLAYER p1 = new PLAYER();  // Create an instance of the PLAYER class for the game
-  float numberofpickables = 5;  // Number of pickable items in the game         // Current score of the game
+  float startnumberofpickables = 5;
+  float numberofpickables = startnumberofpickables;  // Number of pickable items in the game        
+  
   boolean gamestarted = false;  // Flag to track if the game has started
   ArrayList<PICKABLE> pickables = new ArrayList<PICKABLE>();  // List of pickable items
 
@@ -58,5 +60,12 @@ class GAME {
   // Update the player's speed based on the score
   void UpdatePlayerSpeed() {
     p1.maxv = p1.startv + floor(score / 5) * 0.3;  // Increase the player's maximum velocity based on the score
+    numberofpickables = startnumberofpickables + floor(score / 10);  // Increase the number of pickable items based on the score
+    if (numberofpickables > 10) {
+      numberofpickables = 20;  // Limit the number of pickable items to 20
+    }
+    if(numberofpickables > pickables.size()){
+      pickables.add(new PICKABLE());
+    }
   }
 }

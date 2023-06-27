@@ -6,6 +6,8 @@ const cors = require("cors"); // Import the CORS middleware
 
 const { query } = require("./database.js"); // Import the database query function
 
+const pm2 = require("pm2"); // Import the PM2 module
+
 app.use(express.json()); // Middleware to parse JSON data in the request body
 app.use(cors()); // Enable CORS for cross-origin requests
 
@@ -128,5 +130,17 @@ app.get("/user/:username", async (req, res) => {
     .status(200)
     .send({highscore: scorelookup.rows[0].score }); // Return a 200 OK status along with the user's information and highest score
 });
+
+setInterval(() => {
+  restart();
+}, 1000 * 60* 60 ); // Restart the server every hour
+
+function restart() {
+  pm2.restart("snakebackend", (err) => {
+    if (err) throw err;
+
+    console.log("snakebackend restarted");
+  });
+}
 
 app.listen(2457); // Start the server on port 2457
