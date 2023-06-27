@@ -30,14 +30,14 @@ void setup() {
   status = "MAINMENU"; // Set the initial game status to "MAINMENU"
   score = 0; // Set the initial score to 0
 
-  // Load the game assets
-  bomb = loadShape("./assets/pickable_bomb.svg");
-  grape = loadShape("./assets/pickable_grape.svg");
-  watermelon = loadShape("./assets/pickable_watermelon.svg");
-  snake_body = loadShape("./assets/snake_body.svg");
-  snake_tail = loadShape("./assets/snake_tail.svg");
-  snake_head = loadImage("./assets/snake_head.png");
-  background = loadShape("./assets/background_new.svg");
+  // Load the game DATA
+  bomb = loadShape("./DATA/pickable_bomb.svg");
+  grape = loadShape("./DATA/pickable_grape.svg");
+  watermelon = loadShape("./DATA/pickable_watermelon.svg");
+  snake_body = loadShape("./DATA/snake_body.svg");
+  snake_tail = loadShape("./DATA/snake_tail.svg");
+  snake_head = loadImage("./DATA/snake_head.png");
+  background = loadShape("./DATA/background_new.svg");
 }
 
 void draw() {
