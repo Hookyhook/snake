@@ -1,5 +1,4 @@
 // The GAME class represents the game state and logic
-
 class GAME {
   PLAYER p1 = new PLAYER();  // Create an instance of the PLAYER class for the game
   float startnumberofpickables = 5;
@@ -28,7 +27,7 @@ class GAME {
     fill(255);
     textSize(40);
     textAlign(CENTER);
-    text("Score: " + score, 50*relativesize,50);  // Display the current score
+    text("Score: " + score, 50*relativesize, 50);  // Display the current score
     fill(255);
   }
 
