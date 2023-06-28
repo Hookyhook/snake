@@ -58,10 +58,10 @@ class GAME {
 
   // Update the player's speed based on the score
   void UpdatePlayerSpeed() {
-    p1.maxv = p1.startv + floor(score / 5) * 0.3;  // Increase the player's maximum velocity based on the score
+    p1.maxv = p1.startv + floor(score / 5) * 0.3*(frameRate/60);  // Increase the player's maximum velocity based on the score
     numberofpickables = startnumberofpickables + floor(score / 10);  // Increase the number of pickable items based on the score
     if (numberofpickables > 10) {
-      numberofpickables = 20;  // Limit the number of pickable items to 20
+      numberofpickables = 10;  // Limit the number of pickable items to 20
     }
     if(numberofpickables > pickables.size()){
       pickables.add(new PICKABLE());
